@@ -40,41 +40,68 @@ environment = SubResource("Environment_pd3rl")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1629802077]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5.8731527, 8.917818)
 
-[node name="Venus" type="RigidBody3D" parent="." unique_id=1894795131]
+[node name="Venus" type="RigidBody3D" parent="." unique_id=1894795131 node_paths=PackedStringArray("centre_rotation")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 gravity_scale = 0.0
 script = ExtResource("1_d27vx")
-periode = 8.58
-rayon = 4.0
+centre_rotation = NodePath("../Soleil")
+periode_relative = 6.16
+min_distance_simulee = 4.0
+max_distance_simulee = 10.0
+min_distance_reelle = 90000000000.0
+max_distance_reelle = 170000000000.0
+masse = 4.868e+24
+masse_corps_rotation = 1.988e+30
+rayon_initial = 108150000000.0
+etapes_calcul_par_ecran = 20
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Venus" unique_id=1496583295]
+transform = Transform3D(0.812, 0, 0, 0, 0.812, 0, 0, 0, 0.812, 0, 0, 0)
 mesh = SubResource("SphereMesh_pd3rl")
 surface_material_override/0 = SubResource("StandardMaterial3D_ftkmj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Venus" unique_id=2131966920]
+transform = Transform3D(0.812, 0, 0, 0, 0.812, 0, 0, 0, 0.812, 0, 0, 0)
 shape = SubResource("SphereShape3D_pd3rl")
 
-[node name="Terre" type="RigidBody3D" parent="." unique_id=904983492]
+[node name="Terre" type="RigidBody3D" parent="." unique_id=904983492 node_paths=PackedStringArray("centre_rotation")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.373187, 0, 0)
 gravity_scale = 0.0
 script = ExtResource("1_d27vx")
-periode = 13.0
-rayon = 6.0
+centre_rotation = NodePath("../Soleil")
+periode_relative = 10.0
+min_distance_simulee = 4.0
+max_distance_simulee = 10.0
+min_distance_reelle = 90000000000.0
+max_distance_reelle = 170000000000.0
+masse = 5.972e+24
+masse_corps_rotation = 1.988e+30
+rayon_initial = 146900000000.0
+etapes_calcul_par_ecran = 20
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Terre" unique_id=1624782640]
+transform = Transform3D(0.826, 0, 0, 0, 0.826, 0, 0, 0, 0.826, 0, 0, 0)
 mesh = SubResource("SphereMesh_pd3rl")
 surface_material_override/0 = SubResource("StandardMaterial3D_d27vx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terre" unique_id=600494309]
+transform = Transform3D(0.826, 0, 0, 0, 0.826, 0, 0, 0, 0.826, 0, 0, 0)
 shape = SubResource("SphereShape3D_pd3rl")
 
-[node name="Lune" type="RigidBody3D" parent="." unique_id=309872118 node_paths=PackedStringArray("centreRotation")]
+[node name="Lune" type="RigidBody3D" parent="." unique_id=309872118 node_paths=PackedStringArray("centre_rotation")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4570956, 0, 0)
 gravity_scale = 0.0
 script = ExtResource("1_d27vx")
-periode = 1.0
-rayon = 1.5
-centreRotation = NodePath("../Terre")
+centre_rotation = NodePath("../Terre")
+periode_relative = 0.75
+min_distance_simulee = 1.5
+max_distance_simulee = 2.0
+min_distance_reelle = 350000000.0
+max_distance_reelle = 400000000.0
+masse = 7.35e+22
+masse_corps_rotation = 5.972e+24
+rayon_initial = 384000000.0
+etapes_calcul_par_ecran = 50
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Lune" unique_id=1768097223]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
