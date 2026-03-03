@@ -1,0 +1,1 @@
+Solution à la série d'exercice 2 disponible ici : [Notes de cours de 360-4B4-VI Simulations en astrophysique](https://cours-alexandre-ouellet.github.io/simulations/godot/exemple1_mouvement_venus/#exercice-2)

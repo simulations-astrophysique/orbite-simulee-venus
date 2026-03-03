@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cnhsvtbrc7hs7"]
+
+[ext_resource type="Script" uid="uid://dsrlelchfdbva" path="res://planete.gd" id="1_d27vx"]
+
+[sub_resource type="Environment" id="Environment_pd3rl"]
+background_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_pd3rl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftkmj"]
+albedo_color = Color(0.9254902, 0.8039216, 0.38431373, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pd3rl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d27vx"]
+albedo_color = Color(0.24360141, 0.6562301, 0.96008056, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqo55"]
+albedo_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_d27vx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_luslk"]
+albedo_color = Color(1, 1, 0.2, 1)
+metallic = 0.75
+metallic_specular = 0.1
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.75075144, 0.6030793, 0.11566333, 1)
+emission_energy_multiplier = 2.85
+disable_receive_shadows = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ftkmj"]
+
+[node name="Node3D" type="Node3D" unique_id=983185688]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=79403674]
+environment = SubResource("Environment_pd3rl")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1629802077]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5.8731527, 8.917818)
+
+[node name="Venus" type="RigidBody3D" parent="." unique_id=1894795131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+gravity_scale = 0.0
+script = ExtResource("1_d27vx")
+periode = 8.58
+rayon = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Venus" unique_id=1496583295]
+mesh = SubResource("SphereMesh_pd3rl")
+surface_material_override/0 = SubResource("StandardMaterial3D_ftkmj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Venus" unique_id=2131966920]
+shape = SubResource("SphereShape3D_pd3rl")
+
+[node name="Terre" type="RigidBody3D" parent="." unique_id=904983492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.373187, 0, 0)
+gravity_scale = 0.0
+script = ExtResource("1_d27vx")
+periode = 13.0
+rayon = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terre" unique_id=1624782640]
+mesh = SubResource("SphereMesh_pd3rl")
+surface_material_override/0 = SubResource("StandardMaterial3D_d27vx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terre" unique_id=600494309]
+shape = SubResource("SphereShape3D_pd3rl")
+
+[node name="Lune" type="RigidBody3D" parent="." unique_id=309872118 node_paths=PackedStringArray("centreRotation")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4570956, 0, 0)
+gravity_scale = 0.0
+script = ExtResource("1_d27vx")
+periode = 1.0
+rayon = 1.5
+centreRotation = NodePath("../Terre")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lune" unique_id=1768097223]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_pd3rl")
+surface_material_override/0 = SubResource("StandardMaterial3D_nqo55")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lune" unique_id=135251060]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_pd3rl")
+
+[node name="Soleil" type="RigidBody3D" parent="." unique_id=1902049166]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Soleil" unique_id=2136909512]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("SphereMesh_d27vx")
+surface_material_override/0 = SubResource("StandardMaterial3D_luslk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Soleil" unique_id=1834880906]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_ftkmj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Soleil" unique_id=500531029]
+shadow_enabled = true
+omni_range = 30.752
+omni_attenuation = 0.05
