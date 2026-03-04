@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnhsvtbrc7hs7"]
 
-[ext_resource type="Script" uid="uid://dsrlelchfdbva" path="res://planete.gd" id="1_d27vx"]
+[ext_resource type="Script" uid="uid://dsrlelchfdbva" path="res://astre.gd" id="1_d27vx"]
 
 [sub_resource type="Environment" id="Environment_pd3rl"]
 background_mode = 1
