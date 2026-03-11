@@ -1,1 +1,1 @@
-État du projet après l'application des paramètres de simulation et l'utilisation de la méthode d'Euler : [Notes de cours de 360-4B4-VI Simulations en astrophysique](http://localhost:8000/Cours-Alexandre-Ouellet/simulations/godot/exemple1_mouvement_simule/)
+État du projet après l'application des paramètres de simulation et l'utilisation de la méthode d'Euler : [Notes de cours de 360-4B4-VI Simulations en astrophysique](https://cours-alexandre-ouellet.github.io/simulations/godot/exemple1_mouvement_simule/)
